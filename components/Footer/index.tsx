@@ -10,11 +10,11 @@ export default async function Footer() {
 
   return (
     <footer className="px-6 py-12 mt-12">
-      <div className="container mx-auto grid grid-cols-12 grid-rows-2 gap-10 text-white">
-        <div className="col-span-5">
+      <div className="container mx-auto lg:grid grid-cols-12 grid-rows-2 gap-10 text-white">
+        <div className="lg:col-span-5 mb-6 lg:mb-0">
           <Logo color="white" />
         </div>
-        <div className="col-span-7 row-span-2 grid grid-cols-4 gap-6">
+        <div className="lg:col-span-7 row-span-2 grid grid-cols-2 lg:grid-cols-4 gap-6 mb-6 lg:mb-0">
           {links.map((link) => (
             <div key={link.id}>
               <p className="mb-3">{link.name}</p>
