@@ -1,4 +1,4 @@
-export default function Logo({ width="133", height="38", color="#2A2727" }) {
+const Logo = ({ width="133", height="38", color="#2A2727" }) => {
   return (
     <svg width={width} height={height} viewBox="0 0 133 38" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M23.4484 12.8535H31.5148V12.8561V19.5487H35.5328V3.76392H31.5148V9.79483H23.4484V3.76392H19.4304V19.5461H23.4484V12.8535Z" fill={color}/>
@@ -18,3 +18,5 @@ export default function Logo({ width="133", height="38", color="#2A2727" }) {
     </svg>
   )
 }
+
+export { Logo }

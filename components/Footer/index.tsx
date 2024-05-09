@@ -1,18 +1,20 @@
-import Logo from "../Logo";
-import "./style.css"
+import {Logo} from "../shared/Logo";
+import { MainLink } from "../shared/MainLink";
+import style from "./styles.module.css"
 import { builder } from "@builder.io/sdk";
 
-// Replace with your Public API Key.
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 export default async function Footer() {
   const links = await builder.getAll("nav-links", { prerender: false });
 
   return (
-    <footer className="px-6 py-12 mt-12">
+    <footer className={`${style.footer} px-6 py-12 mt-12`}>
       <div className="container mx-auto lg:grid grid-cols-12 grid-rows-2 gap-10 text-white">
         <div className="lg:col-span-5 mb-6 lg:mb-0">
-          <Logo color="white" />
+          <MainLink>
+            <Logo color="white" />
+          </MainLink>
         </div>
         <div className="lg:col-span-7 row-span-2 grid grid-cols-2 lg:grid-cols-4 gap-6 mb-6 lg:mb-0">
           {links.map((link) => (
