@@ -10,7 +10,7 @@ builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 export async function Header() {
   const links = await builder.getAll("nav-links", { prerender: false });
 
-  const linkClass = "px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-white hover:shadow-md hover:-translate-y-1"
+  const linkClass = "px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-white hover:shadow-md"
 
   return (
     <header className="container mx-auto p-6 relative z-10">
@@ -29,25 +29,28 @@ export async function Header() {
             />
           ))}
           <a href="/news/" className={`${linkClass}`}>Новости</a>
-          <a href="/support/donate-2/" className={`${linkClass} bg-[var(--primary)] text-white hover:!bg-[var(--primary)]`}>
+          <a href="/support/donate-2/" className={`${linkClass} bg-[var(--primary)] text-white hover:!bg-[var(--primary)] hover:-translate-y-1`}>
             Поддержать
           </a>
         </nav>
 
-        <Hamburger>
-          {links.map((link) => (
-            <div key={link.id} className="mt-4">
-              <p className="mb-3">{link.name}</p>
-              <ul className="grid gap-2 pl-4">
-                {link.data?.links.map((sub:any) => (
-                  <li key={sub.url}>
-                    <a href={sub.url}>{sub.text}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </Hamburger>
+        <div className="lg:hidden">
+          <Hamburger>
+            {links.map((link) => (
+              <div key={link.id} className="mt-4">
+                <p className="mb-3">{link.name}</p>
+                <ul className="grid gap-2 pl-4">
+                  {link.data?.links.map((sub:any) => (
+                    <li key={sub.url}>
+                      <a href={sub.url}>{sub.text}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </Hamburger>
+        </div>
+
       </div>
     </header>
   )
