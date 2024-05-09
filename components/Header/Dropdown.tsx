@@ -1,20 +1,16 @@
 'use client'
 
 import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export default function Dropdown({ name, buttonClasses, list }: { name:string, buttonClasses:string, list:any }) {
+export default function Dropdown({ name, buttonClasses, list }: { name: string, buttonClasses: string, list: any }) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className={`${buttonClasses} inline-flex w-full justify-center gap-1`}>
+        <MenuButton
+          className={`${buttonClasses} inline-flex w-full justify-center gap-1`}>
           {name}
-        </Menu.Button>
+        </MenuButton>
       </div>
 
       <Transition
@@ -26,25 +22,20 @@ export default function Dropdown({ name, buttonClasses, list }: { name:string, b
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <MenuItems className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
             {list.map((sup: any) => (
-              <Menu.Item key={sup.id}>
-                {({ active }) => (
-                  <a
-                    href={sup.url}
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
-                    {sup.text}
-                  </a>
-                )}
-              </Menu.Item>
+              <MenuItem key={sup.id}>
+                <a
+                  href={sup.url}
+                  className="text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 block px-4 py-2 text-sm"
+                >
+                  {sup.text}
+                </a>
+              </MenuItem>
             ))}
           </div>
-        </Menu.Items>
+        </MenuItems>
       </Transition>
     </Menu>
   )
