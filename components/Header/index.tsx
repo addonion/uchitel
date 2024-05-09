@@ -2,6 +2,8 @@ import { Logo } from "../shared/Logo";
 import { MainLink } from "../shared/MainLink";
 import { builder } from "@builder.io/sdk";
 import Dropdown from "./Dropdown";
+import Hamburger from "./Hamburger";
+import { useState } from "react";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -17,7 +19,7 @@ export async function Header() {
           <Logo />
         </MainLink>
 
-        <nav className="flex gap-2 ml-auto">
+        <nav className="hidden lg:flex gap-2 ml-auto">
           {links.map((link) => (
             <Dropdown
               key={link.id}
@@ -31,6 +33,21 @@ export async function Header() {
             Поддержать
           </a>
         </nav>
+
+        <Hamburger>
+          {links.map((link) => (
+            <div key={link.id} className="mt-4">
+              <p className="mb-3">{link.name}</p>
+              <ul className="grid gap-2 pl-4">
+                {link.data?.links.map((sub:any) => (
+                  <li key={sub.url}>
+                    <a href={sub.url}>{sub.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </Hamburger>
       </div>
     </header>
   )
