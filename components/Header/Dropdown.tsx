@@ -9,7 +9,7 @@ export default function Dropdown({ name, buttonClasses, list }: { name: string, 
       <div>
         <MenuButton
           className={`${buttonClasses} inline-flex w-full justify-center gap-1`}>
-          {name}
+            <b>{name}</b>
         </MenuButton>
       </div>
 

@@ -10,7 +10,7 @@ builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 export async function Header() {
   const links = await builder.getAll("nav-links", { prerender: false });
 
-  const linkClass = "px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-white hover:shadow-md"
+  const linkClass = "px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-white hover:shadow-md data-[open]:bg-white data-[open]:shadow-md"
 
   return (
     <header className="container mx-auto p-6 relative z-10">
@@ -28,9 +28,9 @@ export async function Header() {
               list={link.data?.links}
             />
           ))}
-          <a href="/news/" className={`${linkClass}`}>Новости</a>
+          <a href="/news/" className={`${linkClass}`}><b>Новости</b></a>
           <a href="/support/donate-2/" className={`${linkClass} bg-[var(--primary)] text-white hover:!bg-[var(--primary)] hover:-translate-y-1`}>
-            Поддержать
+            <b>Поддержать</b>
           </a>
         </nav>
 
