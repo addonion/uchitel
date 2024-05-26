@@ -9,10 +9,16 @@
 
 body {
   background-color: var(--light-grey);
+  line-height: 130%;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+blockquote footer {
+  margin-top: 1rem;
+  color: #a1a1aa;
 }

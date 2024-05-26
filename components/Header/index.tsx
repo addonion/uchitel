@@ -12,7 +12,7 @@ export async function Header() {
   const linkClass = "px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-white hover:shadow-md data-[open]:bg-white data-[open]:shadow-md"
 
   return (
-    <header className="container mx-auto py-6 relative z-10">
+    <header className="container mx-auto px-4 lg:px-0 py-6 relative z-10">
       <div className="flex items-center">
         <MainLink>
           <Logo />
