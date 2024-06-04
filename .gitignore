@@ -39,3 +39,4 @@ next-env.d.ts
 .yarn
 .pnp.cjs
 .pnp.loader.mjs
+yarn.lock

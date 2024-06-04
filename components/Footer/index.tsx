@@ -30,6 +30,9 @@ export default async function Footer() {
             </div>
           ))}
           <div>
+            <p className="mb-6">
+              <a href="/news/">Новости</a>
+            </p>
             <p className="mb-3">Мы в соцсетях</p>
             <ul className="grid gap-2">
               <li><a href="https://vk.com/choosetoteachrussia" target="_blank">vk.com</a></li>
