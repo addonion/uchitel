@@ -14,7 +14,7 @@ const nextConfig = BuilderDevTools()({
         protocol: "https",
         hostname: "uchitel.ru",
         port: "",
-        pathname: "/*/**",
+        pathname: "**",
       },
     ],
   },

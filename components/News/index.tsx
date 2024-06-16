@@ -61,7 +61,7 @@ const NewsList = () => {
               <div className="flex flex-col ml-5 w-7/12 max-md:ml-0 max-md:h-[180px] max-md:w-full">
                 <div className="flex flex-col grow py-10 max-md:px-5 lg:pr-5 max-md:max-w-full max-sm:pt-5">
                   <h2 className="text-lg lg:text-2xl font-semibold" dangerouslySetInnerHTML={{__html: post.title.rendered}} />
-                  <div className="hidden lg:flex lg:mt-6">
+                  <div className="hidden lg:flex flex-col lg:mt-6">
                     <div dangerouslySetInnerHTML={{__html: post.excerpt.rendered}} />
                     <a
                       href={post.link}
