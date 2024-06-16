@@ -3,7 +3,6 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react"
 import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query"
 import { useEffect, useState } from "react"
 import { fetchNews } from "../shared/api"
-import Image from 'next/image'
 
 const queryClient = new QueryClient()
 
@@ -49,7 +48,7 @@ const NewsList = () => {
                   target="_blank"
                   className="aspect-video overflow-hidden"
                 >
-                  <Image
+                  <img
                     loading="lazy"
                     width={900}
                     height={450}
