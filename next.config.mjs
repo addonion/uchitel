@@ -9,6 +9,7 @@ const nextConfig = BuilderDevTools()({
     reactCompiler: true,
   },
   images: {
+    domains: ["uchitel.vercel.app"],
     remotePatterns: [
       {
         protocol: "https",
