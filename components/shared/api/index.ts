@@ -9,11 +9,16 @@ export const fetchNews = async () => {
   const newsWithImages = await Promise.all(news.map(async (item:any) => {
     if (item.featured_media) {
       const mediaRes = await fetch(`https://uchitel.ru/wp-json/wp/v2/media/${item.featured_media}`)
-      if (!mediaRes.ok) {
+      // Проверяем статус ответа
+      if (mediaRes.status === 401) {
+        // Пропускаем эту новость
+        item.featured_image_url = null
+      } else if (!mediaRes.ok) {
         throw new Error('Network response was not ok')
+      } else {
+        const media = await mediaRes.json()
+        item.featured_image_url = media.source_url
       }
-      const media = await mediaRes.json()
-      item.featured_image_url = media.source_url
     } else {
       item.featured_image_url = null
     }

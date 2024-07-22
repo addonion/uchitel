@@ -32,7 +32,7 @@ const NewsList = () => {
   }
 
   return (
-    <TabGroup selectedIndex={selectedIndex} onChange={setSelectedIndex} className="relative">
+    <TabGroup selectedIndex={selectedIndex} onChange={setSelectedIndex} >
       <TabList className="hidden">
         {data?.map((post, index) => (
           <Tab key={post.id}>{index}</Tab>
