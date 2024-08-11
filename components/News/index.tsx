@@ -19,13 +19,24 @@ const NewsList = () => {
   const { isPending, isError, data } = useQuery({
     queryKey: ['news'],
     queryFn: fetchNews,
+    select: data => data.filter((item) => item.acf.isOnMain)
   })
 
-  if (isPending || isError) {
+  if (isPending) {
     return (
       <div className="overflow-hidden bg-white rounded-[30px] h-[350px] flex items-center justify-center">
         <div>
           Загрузка…
+        </div>
+      </div>
+    )
+  }
+
+  if (isError) {
+    return (
+      <div className="overflow-hidden bg-white rounded-[30px] h-[350px] flex items-center justify-center">
+        <div>
+          Ошибка загрузки новостей, перезагрузите страницу
         </div>
       </div>
     )
@@ -59,9 +70,9 @@ const NewsList = () => {
               </div>
               <div className="flex flex-col ml-5 w-7/12 max-md:ml-0 max-md:h-[180px] max-md:w-full">
                 <div className="flex flex-col grow py-10 max-md:px-5 lg:pr-5 max-md:max-w-full max-sm:pt-5">
-                  <h2 className="text-lg lg:text-2xl font-semibold" dangerouslySetInnerHTML={{__html: post.title.rendered}} />
+                  <h2 className="text-lg lg:text-2xl font-semibold" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                   <div className="hidden lg:flex flex-col lg:mt-6">
-                    <div dangerouslySetInnerHTML={{__html: post.excerpt.rendered}} />
+                    <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
                     <a
                       href={post.link}
                       target="_blank"
@@ -81,16 +92,16 @@ const NewsList = () => {
         <button
           onClick={() => setSelectedIndex((selectedIndex - 1 + data.length) % data.length)}
           className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 bg-white text-gray-700 hover:bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow-md">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          </svg>
         </button>
         <button
           onClick={() => setSelectedIndex((selectedIndex + 1) % data.length)}
           className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 bg-white text-gray-700 hover:bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow-md">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
     </TabGroup>
