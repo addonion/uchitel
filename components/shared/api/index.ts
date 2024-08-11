@@ -1,5 +1,5 @@
 export const fetchNews = async () => {
-  const res = await fetch('https://uchitel.ru/wp-json/wp/v2/news')
+  const res = await fetch('https://uchitel.ru/wp-json/wp/v2/news?isOnMain=1')
   if (!res.ok) {
     throw new Error('Network response was not ok')
   }

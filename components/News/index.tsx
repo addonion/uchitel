@@ -18,8 +18,7 @@ const NewsList = () => {
 
   const { isPending, isError, data } = useQuery({
     queryKey: ['news'],
-    queryFn: fetchNews,
-    select: data => data.filter((item) => item.acf.isOnMain)
+    queryFn: fetchNews
   })
 
   if (isPending) {
