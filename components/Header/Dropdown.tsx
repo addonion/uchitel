@@ -30,7 +30,7 @@ export default function Dropdown({ name, buttonClasses, list }: { name: string, 
                   href={sup.url}
                   className="text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 block px-4 py-2 text-sm"
                 >
-                  {sup.text}
+                  {sup.title}
                 </a>
               </MenuItem>
             ))}

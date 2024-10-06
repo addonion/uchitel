@@ -1,10 +1,8 @@
 'use client'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react"
-import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query"
+import { QueryClientProvider, useQuery } from "@tanstack/react-query"
 import { useEffect, useState } from "react"
-import { fetchNews } from "../shared/api"
-
-const queryClient = new QueryClient()
+import { fetchNews, queryClient } from "../shared/api"
 
 const NewsList = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)

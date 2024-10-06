@@ -1,3 +1,7 @@
+import { QueryClient } from "@tanstack/react-query"
+
+export const queryClient = new QueryClient()
+
 export const fetchNews = async () => {
   const res = await fetch('https://uchitel.ru/wp-json/wp/v2/news?isOnMain=1')
   if (!res.ok) {
@@ -26,4 +30,14 @@ export const fetchNews = async () => {
   }))
 
   return newsWithImages
+}
+
+export const fetchLinks = async () => {
+  const res = await fetch('https://uchitel.ru/wp-json/wp/v2/nested-menus')
+  if (!res.ok) {
+    throw new Error('Network response was not ok')
+  }
+  const linksList = await res.json()
+
+  return linksList
 }
