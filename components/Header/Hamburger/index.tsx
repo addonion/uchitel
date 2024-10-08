@@ -6,7 +6,7 @@ import styles from './style.module.scss'
 import Link from 'next/link'
 
 const Icon = () => (
-  <svg  viewBox="0 0 60 40" >
+  <svg viewBox="0 0 60 40" >
     <g
       stroke="#575B5E"
       strokeWidth="4"
@@ -64,18 +64,7 @@ export default function Hamburger({
                         <Icon />
                       </div>
 
-                      <Link href="/">Главная страница</Link>
-
-                      <div className='mb-6'>
-                        {children}
-                      </div>
-
-                      <a
-                        href="/support/donate-2/"
-                        className='mt-auto py-4 bg-[var(--primary)] text-white text-center rounded-xl'
-                      >
-                        Поддержать
-                      </a>
+                      {children}
 
                     </div>
                   </DialogPanel>
