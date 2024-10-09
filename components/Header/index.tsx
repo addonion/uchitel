@@ -124,7 +124,7 @@ export function Header() {
             <Logo />
           </a>
 
-          <nav className="hidden lg:flex gap-2 ml-auto">
+          <nav className="hidden xl:flex gap-2 ml-auto">
             <a href="https://konturkultury.uchitel.ru/#kak" className={linkClass}><b>Как все устроено</b></a>
             <a href="https://konturkultury.uchitel.ru/#labs" className={linkClass}><b>Творческие лаборатории</b></a>
             <a href="https://konturkultury.uchitel.ru/#itogi" className={linkClass}><b>Итоги</b></a>
@@ -139,7 +139,7 @@ export function Header() {
             </a>
           </nav>
 
-          <div className="lg:hidden">
+          <div className="xl:hidden">
             <Hamburger>
               <p>
                 <a href="https://konturkultury.uchitel.ru/#kak"><b>Как все устроено</b></a>
