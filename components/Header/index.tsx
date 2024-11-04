@@ -60,7 +60,7 @@ const HamburgerNavLinks = () => {
   return (
     <div className="lg:hidden">
       <Hamburger>
-        <a href="/">Главная страница</a>
+        <Link href="/">Главная страница</Link>
 
         <div className='mb-6'>
           {data[0].items
@@ -130,7 +130,7 @@ export function Header() {
             <a href="https://konturkultury.uchitel.ru/#itogi" className={linkClass}><b>Итоги</b></a>
             <a href="https://konturkultury.uchitel.ru/team/" className={linkClass}><b>Команда</b></a>
 
-            <a href="https://vk.com/kk_vladivostok2024" target="_blank" className={`${linkClass} bg-white text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white hover:-translate-y-1 ml-2`}>
+            <a href="https://vk.com/kk_vladivostok2024" target="_blank" className={`${linkClass} bg-white text-[var(--primary)] hover:bg-[var(--primary)] hover:text-primary hover:-translate-y-1 ml-2`}>
               <b>Группа вконтакте</b>
             </a>
 
