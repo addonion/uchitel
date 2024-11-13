@@ -24,7 +24,7 @@ const LinksList = () => {
       // @ts-ignore
       .map((link) => (
         <div key={link.id}>
-          <p className="mb-3">{link.title}</p>
+          <p className="mb-3 font-bold">{link.title}</p>
           <ul className="grid gap-2">
             {link.children?.map((sub: any) => (
               <li key={sub.url}>
@@ -50,7 +50,7 @@ export default function Footer() {
           <div className="lg:col-span-7 row-span-2 grid grid-cols-2 lg:grid-cols-4 gap-6 mb-6 lg:mb-0">
             <LinksList />
             <div>
-              <p className="mb-6">
+              <p className="mb-6 font-bold">
                 <a href="/news/">Новости</a>
               </p>
               <p className="mb-3">Мы в соцсетях</p>
