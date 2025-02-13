@@ -7,7 +7,7 @@ import { fetchLinks, queryClient } from "../shared/api";
 import { QueryClientProvider, useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
-const linkClass = "px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-white hover:shadow-md data-[open]:bg-white data-[open]:shadow-md"
+const linkClass = "px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-white hover:shadow-md data-open:bg-white data-open:shadow-md"
 
 const NavLinks = () => {
   const { isSuccess, data } = useQuery({
@@ -34,13 +34,13 @@ const NavLinks = () => {
             )
           } else {
             return (
-              <a href={link.url} className={`${linkClass}`}><b>{link.title}</b></a>
+              <a key={link.id} href={link.url} className={`${linkClass}`}><b>{link.title}</b></a>
             )
           }
         })
       }
 
-      <a href="/support/donate-2/" className={`${linkClass} bg-[var(--primary)] text-white hover:!bg-[var(--primary)] hover:-translate-y-1`}>
+      <a href="/support/donate-2/" className={`${linkClass} bg-[var(--primary)] text-white hover:bg-(--primary)! hover:-translate-y-1`}>
         <b>Поддержать</b>
       </a>
     </nav>
@@ -134,7 +134,7 @@ export function Header() {
               <b>Группа вконтакте</b>
             </a>
 
-            <a href="https://uchitel.ru/support/donate-2/" target="_blank" className={`${linkClass} bg-[var(--primary)] text-white hover:!bg-[var(--primary)] hover:-translate-y-1 ml-2`}>
+            <a href="https://uchitel.ru/support/donate-2/" target="_blank" className={`${linkClass} bg-[var(--primary)] text-white hover:bg-(--primary)! hover:-translate-y-1 ml-2`}>
               <b>Поддержать</b>
             </a>
           </nav>
