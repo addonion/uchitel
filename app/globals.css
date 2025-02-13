@@ -1,20 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --primary: #3A5B3F;
-  --light-grey: #F4F5F7;
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }
 
-body {
-  background-color: var(--light-grey);
-  line-height: 130%;
+@utility text-balance {
+  text-wrap: balance;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  :root {
+    --primary: #3a5b3f;
+    --light-grey: #f4f5f7;
+  }
+
+  body {
+    background-color: var(--light-grey);
+    line-height: 130%;
   }
 }
 

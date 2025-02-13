@@ -9,35 +9,34 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@builder.io/dev-tools": "^1.5.8",
-    "@builder.io/react": "^5.0.12",
-    "@builder.io/sdk": "^3.0.8",
+    "@builder.io/sdk-react": "^4.0.3",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
-    "@next/third-parties": "^14.2.24",
-    "@tanstack/react-query": "^5.66.0",
-    "@tanstack/react-query-next-experimental": "^5.66.0",
+    "@next/third-parties": "^15.2.1",
+    "@tanstack/react-query": "^5.67.2",
+    "@tanstack/react-query-next-experimental": "^5.67.2",
     "@vercel/speed-insights": "^1.2.0",
-    "babel-plugin-react-compiler": "^0.0.0",
-    "eslint-plugin-react-compiler": "^0.0.0",
+    "babel-plugin-react-compiler": "^19.0.0-beta-40c6c23-20250301",
     "install": "^0.13.0",
-    "next": "^14.2.24",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "sass": "^1.84.0"
+    "next": "^15.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "^1.85.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.20.0",
-    "@types/node": "^22.13.1",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "eslint": "^9.20.1",
-    "eslint-config-next": "14.2.15",
+    "@eslint/js": "^9.22.0",
+    "@tailwindcss/postcss": "^4.0.12",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.22.0",
+    "eslint-config-next": "15.2.1",
     "eslint-plugin-react": "^7.37.4",
-    "globals": "^15.14.0",
-    "postcss": "^8.5.2",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.24.0"
-  }
+    "globals": "^16.0.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.12",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.0"
+  },
+  "packageManager": "yarn@4.0.2+sha256.825003a0f561ad09a3b1ac4a3b3ea6207af2796d54f62a9420520915721f5186"
 }

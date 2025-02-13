@@ -14,7 +14,7 @@ export default function Accordioon({ data }: {data:Data}) {
           <DisclosureButton className="group flex items-center justify-between gap-2 py-2 w-full font-bold text-lg text-left">
             {item.title}
             <div>
-              <ChevronDownIcon className="w-6 group-data-[open]:rotate-180" />
+              <ChevronDownIcon className="w-6 group-data-open:rotate-180" />
             </div>
           </DisclosureButton>
           <DisclosurePanel className="text-gray-500 pb-2" dangerouslySetInnerHTML={{ __html: `${item.text}` }} />
