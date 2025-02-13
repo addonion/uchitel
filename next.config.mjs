@@ -1,9 +1,7 @@
-import BuilderDevTools from "@builder.io/dev-tools/next";
-
 const isProd = process.env.NODE_ENV === "production";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = BuilderDevTools()({
+const nextConfig = {
   assetPrefix: isProd ? process.env.NEXT_PUBLIC_DOMAIN : undefined,
   images: {
     remotePatterns: [
@@ -15,6 +13,9 @@ const nextConfig = BuilderDevTools()({
       },
     ],
   },
-});
+  experimental: {
+    reactCompiler: true,
+  },
+};
 
 export default nextConfig;
