@@ -1,7 +1,5 @@
 import { Onest } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
@@ -19,9 +17,7 @@ export default function RootLayout({
       <GoogleTagManager gtmId="GTM-MQ7NWKC" />
       <body className={onest.className}>
         <React.StrictMode>
-          <Header />
           {children}
-          <Footer />
           <ExternalScripts />
           <SpeedInsights />
         </React.StrictMode>
