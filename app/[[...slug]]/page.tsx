@@ -1,4 +1,6 @@
 import { customComponents } from '@/builder-registry';
+import Footer from '@/components/Footer';
+import { Header } from '@/components/Header';
 import {
   Content,
   fetchOneEntry,
@@ -34,12 +36,14 @@ export default async function Page(props: any) {
     <>
       <title>{content?.data?.title}</title>
       <meta name="description" content={content?.data?.description} />
+      {!content?.data?.noHeader && <Header />}
       <Content
         content={content}
         apiKey={PUBLIC_API_KEY}
         model="page"
         customComponents={customComponents}
       />
+      <Footer />
     </>
   )
 }
