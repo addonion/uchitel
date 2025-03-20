@@ -36,6 +36,7 @@ export default async function Page(props: any) {
     <>
       <title>{content?.data?.title}</title>
       <meta name="description" content={content?.data?.description} />
+      {process.env.NEXT_PUBLIC_DOMAIN === "https://uchitel.vercel.app" && <link rel="canonical" href={`https://uchitel.ru${urlPath}`} />}
       {!content?.data?.noHeader && <Header />}
       <Content
         content={content}
