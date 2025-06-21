@@ -16,6 +16,7 @@ const nextConfig = {
   experimental: {
     reactCompiler: true,
   },
+  serverExternalPackages: ["isolated-vm"],
 };
 
 export default nextConfig;
