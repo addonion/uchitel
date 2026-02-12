@@ -1,7 +1,7 @@
 "use client";
 import News from "@/components/News";
 import Accordioon from "@/components/shared/Accordioon";
-import { type RegisteredComponent } from "@builder.io/sdk-react";
+import type { RegisteredComponent } from "@builder.io/sdk-react";
 
 export const customComponents: RegisteredComponent[] = [
   {
