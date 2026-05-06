@@ -1,12 +1,15 @@
 import { customComponents } from '@/builder-registry';
+import { BuilderFetchProxy } from '@/components/BuilderFetchProxy';
 import Footer from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { BUILDER_CDN_HOST, rewriteBuilderUrls } from '@/lib/builder-proxy';
 import {
   Content,
   fetchOneEntry,
   getBuilderSearchParams,
   isPreviewing,
 } from '@builder.io/sdk-react';
+import type { BuilderContent } from '@builder.io/sdk-react';
 import type { Metadata } from 'next';
 
 // Builder Public API Key set in .env file
@@ -17,17 +20,27 @@ interface PageProps {
   searchParams: Promise<Record<string, string>>;
 }
 
+async function fetchBuilderPage(
+  urlPath: string,
+  searchParams: Record<string, string>,
+): Promise<BuilderContent | null> {
+  const content = await fetchOneEntry({
+    options: getBuilderSearchParams(searchParams),
+    apiHost: BUILDER_CDN_HOST,
+    apiKey: PUBLIC_API_KEY,
+    model: 'page',
+    userAttributes: { urlPath },
+  });
+
+  return rewriteBuilderUrls(content);
+}
+
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const params = await props.params;
   const searchParams = await props.searchParams;
   const urlPath = '/' + (params?.slug?.join('/') || '');
 
-  const content = await fetchOneEntry({
-    options: getBuilderSearchParams(searchParams),
-    apiKey: PUBLIC_API_KEY,
-    model: 'page',
-    userAttributes: { urlPath },
-  });
+  const content = await fetchBuilderPage(urlPath, searchParams);
 
   return {
     title: content?.data?.title || 'Страница',
@@ -45,12 +58,7 @@ export default async function Page(props: PageProps) {
   const searchParams = await props.searchParams;
   const urlPath = '/' + (params?.slug?.join('/') || '');
 
-  const content = await fetchOneEntry({
-    options: getBuilderSearchParams(searchParams),
-    apiKey: PUBLIC_API_KEY,
-    model: 'page',
-    userAttributes: { urlPath },
-  });
+  const content = await fetchBuilderPage(urlPath, searchParams);
 
   const canShowContent = content || isPreviewing(searchParams);
 
@@ -65,9 +73,11 @@ export default async function Page(props: PageProps) {
 
   return (
     <>
+      <BuilderFetchProxy />
       {!content?.data?.noHeader && <Header />}
       <Content
         content={content}
+        apiHost={BUILDER_CDN_HOST}
         apiKey={PUBLIC_API_KEY}
         model="page"
         customComponents={customComponents}

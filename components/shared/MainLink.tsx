@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 
@@ -13,9 +14,9 @@ const MainLink = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   }
 
   return (
-    <a href="/">
+    <Link href="/">
       { children }
-    </a>
+    </Link>
   )
 }
 

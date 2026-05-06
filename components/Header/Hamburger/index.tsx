@@ -3,7 +3,6 @@
 import { Fragment, useState } from 'react'
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
 import styles from './style.module.scss'
-import Link from 'next/link'
 
 const Icon = () => (
   <svg viewBox="0 0 60 40" >
@@ -77,4 +76,3 @@ export default function Hamburger({
     </>
   )
 }
-

@@ -1,11 +1,9 @@
-import { Onest } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import React from "react";
-
-const onest = Onest({ subsets: ["latin"] });
+import { AppProviders } from "@/components/shared/AppProviders";
 
 export default function RootLayout({
   children,
@@ -15,12 +13,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleTagManager gtmId="GTM-MQ7NWKC" />
-      <body className={onest.className}>
-        <React.StrictMode>
-          {children}
-          <ExternalScripts />
-          <SpeedInsights />
-        </React.StrictMode>
+      <body>
+        <AppProviders>
+          <React.StrictMode>
+            {children}
+            <ExternalScripts />
+            <SpeedInsights />
+          </React.StrictMode>
+        </AppProviders>
       </body>
     </html>
   );
